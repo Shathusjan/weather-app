@@ -13,19 +13,13 @@ let cityOption;
 function handleCityItemClick() {
   cityItems.forEach((item) => item.classList.remove("selected"));
   this.classList.toggle("selected");
-  cityOption = this.textContent;
+  cityInputEl.value = this.textContent;
+  getWeatherData(this.textContent);
 }
 
 for (let i = 0; i < cityItems.length; i++) {
   cityItems[i].addEventListener("click", handleCityItemClick);
 }
-
-const cityHandler = (e) => {
-  e.preventDefault(); //terminate browser defualt behaviour
-
-  //get the value from input
-  getWeatherData(cityOption);
-};
 
 const formHandler = (e) => {
   e.preventDefault(); //terminate browser defualt behaviour
@@ -39,7 +33,6 @@ const formHandler = (e) => {
 };
 
 formEl.addEventListener("submit", formHandler);
-formEl.addEventListener("submit", cityHandler);
 
 const getWeatherData = async (inputValue) => {
   try {
@@ -50,7 +43,6 @@ const getWeatherData = async (inputValue) => {
       throw new error("Network response was not ok");
     }
     const data = await response.json();
-    console.log(data);
 
     // Collect data from JSON
     const temperature = Math.round(data.main.temp);
@@ -79,6 +71,9 @@ const getWeatherData = async (inputValue) => {
         <div>${details[2]}</div>
     `;
   } catch (error) {
-    console.log("No data found");
+    if (cityInputEl.value === "") {
+      alert("Input a city name please");
+      location.reload();
+    }
   }
 };
