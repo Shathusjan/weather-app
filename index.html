@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+
+    <!-- Links -->
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+    />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <a href="#" class="header-logo">Weather <span>App</span></a>
+    </header>
+    <div class="main-container">
+      <section class="heading">
+        <h1>Find Weather</h1>
+      </section>
+      <form>
+        <input type="text" placeholder="Search City" class="cityInput" />
+        <button type="submit" class="btn">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+        <div>
+          <ul class="city_list">
+            <li class="city-item">New York</li>
+            <li class="city-item">Los Angeles</li>
+            <li class="city-item">Chicago</li>
+            <li class="city-item">San Francisco</li>
+            <li class="city-item">Miami</li>
+            <!-- Add more cities as needed -->
+          </ul>
+        </div>
+      </form>
+      <section class="details-container">
+        <div class="colud_image">
+          <!-- <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="image" /> -->
+        </div>
+        <h1 class="weather-degree"></h1>
+        <span class="weather_description"></span>
+        <div class="weather-details">
+          <!-- <div>feels like: 4°c</div>
+          <div>High Humunity</div>
+          <div>Much better</div> -->
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
